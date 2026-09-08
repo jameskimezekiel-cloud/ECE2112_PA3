@@ -1,39 +1,22 @@
-# ADPROG_PA3 — Python Data Analysis (Pandas)
-
-**Experiment 3: Python Data Analysis (Pandas)**
-Submitted by: James, Kim Ezekiel G. | 2ECE-A | 09/09/2026
-
-## Overview
+# PA3_ECE2112_JAMES, KE
+---
+### EXPERIMENT 3: PYTHON DATA ANALYSIS (PANDAS)
+Submitted by: James, Kim Ezekiel G. | 2ECE-A | 09/08/2026
 
 This notebook works with the `cars.csv` dataset (the classic `mtcars`-style
 dataset) using **pandas** to practice positional slicing, label-based
 selection, and Boolean indexing.
 
-## Requirements
+## Objectives
+---
+##### At the end of this laboratory activity, the student should be able to:
+1. load a CSV dataset into a Pandas DataFrame;
+2. select rows and columns using positional and label-based indexing;
+3. filter records using conditions on a DataFrame column; and
+4. extract a well-defined subset of data without changing the source data.
 
-- Python 3
-- pandas
-- `cars.csv` in the same directory as the notebook (the notebook loads it
-  with `pd.read_csv('cars.csv')`)
-
-Install pandas if needed:
-```bash
-pip install pandas
-```
-
-## How to Run
-
-1. Place `cars.csv` in the same folder as `ADPROG_PA3.ipynb`.
-2. Open the notebook with Jupyter:
-   ```bash
-   jupyter notebook ADPROG_PA3.ipynb
-   ```
-3. Run all cells in order (Cell → Run All).
-
-## Contents
-
-### A. Positional and Label-Based Slicing
-
+## A. Positional and Label-Based Slicing
+---
 Load the dataset:
 ```python
 import pandas as pd
@@ -63,8 +46,8 @@ cars_6_to_10 = cars_6_to_10[['Model', 'mpg', 'cyl', 'hp', 'gear']]
 cars_6_to_10
 ```
 
-### B. Model Lookup
-
+## B. Model Lookup
+---
 **a. Full row for Toyota Corolla**
 ```python
 toyota = cars[cars["Model"] == "Toyota Corolla"]
@@ -78,8 +61,8 @@ pontiac = cars.loc[cars["Model"] == "Pontiac Firebird",
 pontiac
 ```
 
-### C. Multi-Model Subsetting
-
+## C. Multi-Model Subsetting
+---
 **Select Datsun 710, Lotus Europa, and Ferrari Dino by name**
 ```python
 models = ["Datsun 710", "Lotus Europa", "Ferrari Dino"]
@@ -93,12 +76,8 @@ print(selected_cars.shape)
 selected_cars
 ```
 
-## Key Variables
+To view the program for PA1: download [ECE2112_PA3](https://github.com/jameskimezekiel-cloud/ECE2112_PA3/blob/main/PA3%20.ipynb), open on Jupyter Notebook, and run all cells.
 
-| Variable         | Description                                              |
-|------------------|-----------------------------------------------------------|
-| `cars`           | Full dataset loaded from `cars.csv`                       |
-| `cars_6_to_10`   | Rows 6–10, later reduced to 5 selected columns             |
-| `toyota`         | Full row for Toyota Corolla                                |
-| `pontiac`        | Selected columns for Pontiac Firebird                      |
-| `selected_cars`  | 3 selected models with 5 selected columns (3×5 DataFrame)  |
+## README file Version History
+- September 08, 2026 - Uploaded the .ipynb file
+- September 08, 2026 - Uploaded the README file
