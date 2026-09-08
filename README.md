@@ -76,7 +76,7 @@ print(selected_cars.shape)
 selected_cars
 ```
 
-To view the program for PA1: download [ECE2112_PA3](https://github.com/jameskimezekiel-cloud/ECE2112_PA3/blob/main/ADPROG_PA3.ipynb), open on Jupyter Notebook, and run all cells.
+To view the program for PA3: download [ECE2112_PA3](https://github.com/jameskimezekiel-cloud/ECE2112_PA3/blob/main/ADPROG_PA3.ipynb), open on Jupyter Notebook, and run all cells.
 
 ## README file Version History
 - September 08, 2026 - Uploaded the .ipynb file
