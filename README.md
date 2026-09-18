@@ -3,6 +3,7 @@
 ### EXPERIMENT 3: PYTHON DATA ANALYSIS (PANDAS)
 Submitted by: James, Kim Ezekiel G. | 2ECE-A | 09/08/2026
 
+##### The content of this repository contains the **Programming Assignment 3** for ECE2112 Advanced Computer Programming course A.Y. 2026 - 2027 which covers python problems from **Module 3 - PANDAS**.
 ---
 
 ## Table of Contents
@@ -14,7 +15,6 @@ Submitted by: James, Kim Ezekiel G. | 2ECE-A | 09/08/2026
   - [Part B — Model Lookup](#part-b--model-lookup)
   - [Part C — Multi-Model Subsetting](#part-c--multi-model-subsetting)
 - [Files](#files)
-- [Setup](#setup)
 - [Running the Notebook](#running-the-notebook)
 - [Notes](#notes)
 
@@ -47,33 +47,59 @@ import pandas as pd
 
 cars = pd.read_csv('cars.csv')
 
-# Shape and column names
+# (A) Shape and column names
 print("Shape:", cars.shape)
 print("List of Column Names:", list(cars))
 
-# Rows 6–10 (1-based), pulled positionally
+# (B)Rows 6–10 (1-based), pulled positionally
 cars_6_to_10 = cars.iloc[5:10]
 cars_6_to_10
 
-# Narrow down to specific columns, in this order
+# (C)Narrow down to specific columns, in this order
 cars_6_to_10.loc[:, ['Model', 'mpg', 'cyl', 'hp', 'gear']]
 ```
 
-`cars.shape` returns `(32, 12)`, and the dataset's 12 columns are `Model`, `mpg`, `cyl`, `disp`, `hp`, `drat`, `wt`, `qsec`, `vs`, `am`, `gear`, and `carb`.
+(b)
+|  | Model | mpg | cyl | disp | hp | drat | wt | qsec | vs | am | gear | carb |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 5 | Valiant | 18.1 | 6 | 225.0 | 105 | 2.76 | 3.46 | 20.22 | 1 | 0 | 3 | 1 |
+| 6 | Duster 360 | 14.3 | 8 | 360.0 | 245 | 3.21 | 3.57 | 15.84 | 0 | 0 | 3 | 4 |
+| 7 | Merc 240D | 24.4 | 4 | 146.7 | 62 | 3.69 | 3.19 | 20.00 | 1 | 0 | 4 | 2 |
+| 8 | Merc 230 | 22.8 | 4 | 140.8 | 95 | 3.92 | 3.15 | 22.90 | 1 | 0 | 4 | 2 |
+| 9 | Merc 280 | 19.2 | 6 | 167.6 | 123 | 3.92 | 3.44 | 18.30 | 1 | 0 | 4 | 4 |
+
+(c)
+|  | Model | mpg | cyl | hp | gear |
+|---|---|---|---|---|---|
+| 5 | Valiant | 18.1 | 6 | 105 | 3 |
+| 6 | Duster 360 | 14.3 | 8 | 245 | 3 |
+| 7 | Merc 240D | 24.4 | 4 | 62 | 4 |
+| 8 | Merc 230 | 22.8 | 4 | 95 | 4 |
+| 9 | Merc 280 | 19.2 | 6 | 123 | 4 |
 
 ### Part B — Model Lookup
 
 Rather than hard-coding a row index, filter on the `Model` column directly to pull a specific car's data.
 
 ```python
-# Full record for Toyota Corolla
+# (A)Full record for Toyota Corolla
 toyota = cars.loc[cars['Model'] == 'Toyota Corolla']
 toyota
 
-# Selected fields for Pontiac Firebird
+# (B)Selected fields for Pontiac Firebird
 pontiac = cars.loc[(cars['Model'] == 'Pontiac Firebird'), ['Model', 'mpg', 'hp', 'wt']]
 pontiac
 ```
+### OUTCOMES:
+(a)
+| # | Model | mpg | cyl | disp | hp | drat | wt | qsec | vs | am | gear | carb |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 19 | Toyota Corolla | 33.9 | 4 | 71.1 | 65 | 4.22 | 1.835 | 19.9 | 1 | 1 | 4 | 1 |
+
+(b)
+| # | Model | mpg | hp | wt |
+|---|---|---|---|---|
+| 24 | Pontiac Firebird | 19.2 | 175 | 3.845 |
 
 ### Part C — Multi-Model Subsetting
 
@@ -88,8 +114,15 @@ selected_cars = cars.loc[
 print("Shape:", selected_cars.shape)
 selected_cars
 ```
-
-`selected_cars` comes out to a `(3, 5)` DataFrame — one row per requested model, five columns wide.
+### OUTCOMES:
+```
+Shape: (3, 5)
+```
+| # | Model | mpg | cyl | hp | gear |
+|---|---|---|---|---|---|
+| 2 | Datsun 710 | 22.8 | 4 | 93 | 4 |
+| 27 | Lotus Europa | 30.4 | 4 | 113 | 5 |
+| 29 | Ferrari Dino | 19.7 | 6 | 175 | 5 |
 
 ---
 
@@ -101,14 +134,6 @@ selected_cars
 ├── PA3.ipynb      # the assignment notebook
 └── README.md      # this file
 ```
-
----
-
-## Setup
-
-- Python 3.8 or later
-- `pandas` (`pip install pandas`)
-- Jupyter Notebook or JupyterLab
 
 ---
 
